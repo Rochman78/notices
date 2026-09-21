@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Notice — Filet de camouflage</title>
+<style>
+:root{--g:#7fcf9b;--gd:#3f9d66;--ink:#1d1d1b;--mut:#6b6b68;--bg:#f6f8f6;--card:#fff;--line:#dfe5e0}
+@media (prefers-color-scheme:dark){:root{--ink:#f2f4f2;--mut:#a5aba6;--bg:#171a18;--card:#222623;--line:#343a36}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+ padding:max(20px,env(safe-area-inset-top)) 20px max(28px,env(safe-area-inset-bottom));min-height:100vh}
+main{max-width:440px;margin:0 auto}
+.brand{display:inline-block;background:#000;color:#fff;font-weight:700;letter-spacing:.14em;font-size:14px;padding:9px 20px;border-radius:99px;margin:6px 0 26px}
+h1{font-size:28px;line-height:1.15;margin:0 0 4px;font-weight:700}
+.sub{color:var(--mut);font-size:17px;margin:0 0 6px}
+.bar{width:44px;height:4px;background:var(--g);border-radius:3px;margin:14px 0 26px}
+.btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-decoration:none;color:inherit;
+ background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:600;margin:0 0 10px}
+.btn small{font-weight:500;color:var(--mut);font-size:13px;display:block}
+.btn .ar{flex:none;width:30px;height:30px;border-radius:50%;background:var(--g);display:grid;place-items:center}
+.btn .ar svg{width:16px;height:16px}
+.btn.main{background:var(--g);border-color:var(--g);color:#0f2a19;padding:19px 18px;font-size:19px}
+.btn.main .ar{background:#fff}
+.btn.off{opacity:.45;pointer-events:none}
+h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:26px 0 10px;font-weight:600}
+.foot{margin-top:30px;color:var(--mut);font-size:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+ <div class="brand">ZEPHYR O.S.C</div>
+ <h1 id="t"></h1>
+ <p class="sub" id="s"></p>
+ <div class="bar"></div>
+ <div id="main"></div>
+ <h2 id="o"></h2>
+ <div id="list"></div>
+ <p class="foot">SAS ZEPHYR O.S.C · 5 rue Fénelon, 33000 Bordeaux, France<br>contact@zephyrosc.com</p>
+</main>
+<script>
+/* ============ À MODIFIER ICI : un lien PDF par langue ============
+   Laisser "" tant qu'un PDF n'est pas prêt (le bouton est alors grisé). */
+const NOTICES = {
+  fr: "",
+  en: "",
+  es: "",
+  de: "",
+  nl: "",
+  it: "",
+  pt: ""
+};
+/* ================================================================= */
+const L = {
+ fr:{name:"Français",   t:"Notice d'utilisation",   s:"Filet de camouflage", b:"Ouvrir la notice (PDF)",          o:"Autres langues"},
+ en:{name:"English",    t:"User guide",             s:"Camouflage net",      b:"Open the guide (PDF)",            o:"Other languages"},
+ es:{name:"Español",    t:"Manual de instrucciones",s:"Red de camuflaje",    b:"Abrir el manual (PDF)",           o:"Otros idiomas"},
+ de:{name:"Deutsch",    t:"Bedienungsanleitung",    s:"Tarnnetz",            b:"Anleitung öffnen (PDF)",          o:"Weitere Sprachen"},
+ nl:{name:"Nederlands", t:"Gebruiksaanwijzing",     s:"Camouflagenet",       b:"Gebruiksaanwijzing openen (PDF)", o:"Andere talen"},
+ it:{name:"Italiano",   t:"Istruzioni per l'uso",   s:"Rete mimetica",       b:"Apri le istruzioni (PDF)",        o:"Altre lingue"},
+ pt:{name:"Português",  t:"Manual de instruções",   s:"Rede de camuflagem",  b:"Abrir o manual (PDF)",            o:"Outros idiomas"}
+};
+const ARROW='<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="#0f2a19" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg></span>';
+function pick(){
+  const q=new URLSearchParams(location.search).get("lang");
+  if(q&&L[q.toLowerCase()]) return q.toLowerCase();
+  for(const l of (navigator.languages||[navigator.language||"en"])){
+    const c=String(l).slice(0,2).toLowerCase(); if(L[c]) return c;
+  }
+  return "en";
+}
+function a(lang,cls,label,sub){
+  const u=NOTICES[lang]||"";
+  return '<a class="btn '+cls+(u?'':' off')+'" '+(u?'href="'+u+'" ':'')+'hreflang="'+lang+'" rel="noopener">'+
+    '<span>'+label+(sub?'<small>'+sub+'</small>':'')+'</span>'+ARROW+'</a>';
+}
+function render(lang){
+  const x=L[lang]; document.documentElement.lang=lang;
+  document.getElementById("t").textContent=x.t;
+  document.getElementById("s").textContent=x.s;
+  document.getElementById("main").innerHTML=a(lang,"main",x.b,"");
+  document.getElementById("o").textContent=x.o;
+  document.getElementById("list").innerHTML=Object.keys(L).filter(k=>k!==lang).map(k=>a(k,"",L[k].name,"")).join("");
+  document.title=x.t+" — "+x.s;
+}
+render(pick());
+</script>
+</body>
+</html>
