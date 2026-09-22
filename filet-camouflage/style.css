@@ -12,10 +12,10 @@ h1{font-size:28px;line-height:1.15;margin:0 0 4px;font-weight:700}
 .btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-decoration:none;color:inherit;
  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;font-size:17px;font-weight:600;margin:0 0 10px}
 .btn small{font-weight:500;color:var(--mut);font-size:13px;display:block}
-.btn .ar{flex:none;width:30px;height:30px;border-radius:50%;background:var(--g);display:grid;place-items:center}
+.btn .ar{flex:none;width:30px;height:30px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center}
 .btn .ar svg{width:16px;height:16px}
-.btn.main{background:var(--g);border-color:var(--g);color:#0f2a19;padding:19px 18px;font-size:19px}
-.btn.main .ar{background:#fff}
+.btn.main{background:var(--g);border-color:var(--g);color:#fff;padding:19px 18px;font-size:19px}
+.btn.main .ar{background:#fff;color:var(--gd)}
 .btn.off{opacity:.45;pointer-events:none}
 h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:26px 0 10px;font-weight:600}
 .foot{margin-top:30px;color:var(--mut);font-size:12px;line-height:1.5}

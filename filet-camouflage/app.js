@@ -27,7 +27,7 @@ var NS = "http://www.w3.org/2000/svg";
 function arrow(){
   var w=document.createElement("span"); w.className="ar";
   var s=document.createElementNS(NS,"svg"); s.setAttribute("viewBox","0 0 16 16"); s.setAttribute("fill","none");
-  s.setAttribute("stroke","#0f2a19"); s.setAttribute("stroke-width","2.2"); s.setAttribute("stroke-linecap","round"); s.setAttribute("stroke-linejoin","round");
+  s.setAttribute("stroke","currentColor"); s.setAttribute("stroke-width","2.2"); s.setAttribute("stroke-linecap","round"); s.setAttribute("stroke-linejoin","round");
   var p=document.createElementNS(NS,"path"); p.setAttribute("d","M3 8h9M8.5 4l4 4-4 4"); s.appendChild(p); w.appendChild(s); return w;
 }
 function pick(){
