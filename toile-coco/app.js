@@ -1,0 +1,59 @@
+"use strict";
+/* Ne pas modifier ce fichier pour changer un lien : voir config.js */
+var LANGS = {
+ fr:{name:"Français",   t:"Guide d'installation",     s:"Voile d'ombrage en fibre de coco", b:"Ouvrir le guide (PDF)",       o:"Autres langues"},
+ en:{name:"English",    t:"Installation guide",       s:"Coconut-fibre shade sail",         b:"Open the guide (PDF)",        o:"Other languages"},
+ es:{name:"Español",    t:"Guía de instalación",      s:"Vela de sombra de fibra de coco",  b:"Abrir la guía (PDF)",         o:"Otros idiomas"},
+ de:{name:"Deutsch",    t:"Installationsanleitung",   s:"Sonnensegel aus Kokosfaser",       b:"Anleitung öffnen (PDF)",      o:"Weitere Sprachen"},
+ nl:{name:"Nederlands", t:"Installatiehandleiding",   s:"Schaduwdoek van kokosvezel",       b:"Handleiding openen (PDF)",    o:"Andere talen"},
+ it:{name:"Italiano",   t:"Guida all'installazione",  s:"Vela ombreggiante in fibra di cocco", b:"Apri la guida (PDF)",       o:"Altre lingue"},
+ pt:{name:"Português",  t:"Guia de instalação",       s:"Vela de sombra em fibra de coco",  b:"Abrir o guia (PDF)",          o:"Outros idiomas"}
+};
+/* Liste blanche : seuls ces hôtes peuvent être ouverts depuis la page. */
+var ALLOWED_HOSTS = ["drive.google.com","docs.google.com","drive.usercontent.google.com"];
+var OWN_PDF_PATH = /^\/[a-z0-9-]+\/pdf\/[a-z0-9._-]+\.pdf$/i;
+function safeUrl(u){
+  if(!u) return "";
+  try{
+    var x = new URL(u, location.href);
+    if(x.protocol !== "https:") return "";
+    if(x.username || x.password) return "";
+    if(ALLOWED_HOSTS.indexOf(x.hostname) !== -1) return x.href;
+    if(x.hostname === location.hostname && OWN_PDF_PATH.test(x.pathname)) return x.href;
+  }catch(e){}
+  return "";
+}
+var NS = "http://www.w3.org/2000/svg";
+function arrow(){
+  var w=document.createElement("span"); w.className="ar";
+  var s=document.createElementNS(NS,"svg"); s.setAttribute("viewBox","0 0 16 16"); s.setAttribute("fill","none");
+  s.setAttribute("stroke","currentColor"); s.setAttribute("stroke-width","2.2"); s.setAttribute("stroke-linecap","round"); s.setAttribute("stroke-linejoin","round");
+  var p=document.createElementNS(NS,"path"); p.setAttribute("d","M3 8h9M8.5 4l4 4-4 4"); s.appendChild(p); w.appendChild(s); return w;
+}
+function pick(){
+  var q=(new URLSearchParams(location.search).get("lang")||"").toLowerCase();
+  if(Object.prototype.hasOwnProperty.call(LANGS,q)) return q;
+  var list=navigator.languages||[navigator.language||"en"];
+  for(var i=0;i<list.length;i++){var c=String(list[i]).slice(0,2).toLowerCase(); if(Object.prototype.hasOwnProperty.call(LANGS,c)) return c;}
+  return "en";
+}
+function btn(lang,main){
+  var u=safeUrl((window.NOTICES||{})[lang]);
+  var a=document.createElement("a");
+  a.className="btn"+(main?" main":"")+(u?"":" off");
+  if(u){a.href=u; a.rel="noopener noreferrer"; a.referrerPolicy="no-referrer";}
+  a.setAttribute("hreflang",lang);
+  var sp=document.createElement("span"); sp.textContent=LANGS[lang].name;
+  a.appendChild(sp); a.appendChild(arrow()); return a;
+}
+function render(lang){
+  var x=LANGS[lang]; document.documentElement.lang=lang;
+  document.getElementById("t").textContent=x.t;
+  document.getElementById("s").textContent=x.s;
+  document.getElementById("o").textContent=x.o;
+  document.title=x.t+" — "+x.s;
+  var m=document.getElementById("main"); m.textContent=""; m.appendChild(btn(lang,true));
+  var l=document.getElementById("list"); l.textContent="";
+  Object.keys(LANGS).forEach(function(k){ if(k!==lang) l.appendChild(btn(k,false)); });
+}
+render(pick());
