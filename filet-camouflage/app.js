@@ -43,7 +43,7 @@ function btn(lang,main){
   a.className="btn"+(main?" main":"")+(u?"":" off");
   if(u){a.href=u; a.rel="noopener noreferrer"; a.referrerPolicy="no-referrer";}
   a.setAttribute("hreflang",lang);
-  var sp=document.createElement("span"); sp.textContent=main?LANGS[lang].b:LANGS[lang].name;
+  var sp=document.createElement("span"); sp.textContent=LANGS[lang].name;
   a.appendChild(sp); a.appendChild(arrow()); return a;
 }
 function render(lang){
