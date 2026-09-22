@@ -7,11 +7,11 @@
      Tout autre lien est refusé automatiquement.
    ============================================================ */
 window.NOTICES = {
-  fr: "",
+  fr: "/filet-camouflage/pdf/notice-filet-camouflage-fr.pdf",
   en: "",
-  es: "",
-  de: "",
-  nl: "",
-  it: "",
+  es: "/filet-camouflage/pdf/notice-filet-camouflage-es.pdf",
+  de: "/filet-camouflage/pdf/notice-filet-camouflage-de.pdf",
+  nl: "/filet-camouflage/pdf/notice-filet-camouflage-nl.pdf",
+  it: "/filet-camouflage/pdf/notice-filet-camouflage-it.pdf",
   pt: ""
 };
