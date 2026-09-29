@@ -7,11 +7,11 @@
      Tout autre lien est refusé automatiquement.
    ============================================================ */
 window.NOTICES = {
-  fr: "",
-  en: "",
-  es: "",
-  de: "",
-  nl: "",
-  it: "",
-  pt: ""
+  fr: "/voile-zephyr/pdf/guide-voile-zephyr-fr.pdf",
+  en: "/voile-zephyr/pdf/guide-voile-zephyr-en.pdf",
+  es: "/voile-zephyr/pdf/guide-voile-zephyr-es.pdf",
+  de: "/voile-zephyr/pdf/guide-voile-zephyr-de.pdf",
+  nl: "/voile-zephyr/pdf/guide-voile-zephyr-nl.pdf",
+  it: "/voile-zephyr/pdf/guide-voile-zephyr-it.pdf",
+  pt: "/voile-zephyr/pdf/guide-voile-zephyr-pt.pdf"
 };
