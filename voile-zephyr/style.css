@@ -1,4 +1,4 @@
-:root{--g:#b98a4a;--gd:#8a6229;--ink:#1d1d1b;--mut:#6b6b68;--bg:#f6f8f6;--card:#fff;--line:#dfe5e0}
+:root{--g:#4f6d8a;--gd:#3b5670;--ink:#1d1d1b;--mut:#6b6b68;--bg:#f4f7fa;--card:#fff;--line:#c9d6e2}
 @media (prefers-color-scheme:dark){:root{--ink:#f2f4f2;--mut:#a5aba6;--bg:#171a18;--card:#222623;--line:#343a36}}
 *{box-sizing:border-box}
 img{max-width:100%;height:auto}
