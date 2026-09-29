@@ -7,11 +7,11 @@
      Tout autre lien est refusé automatiquement.
    ============================================================ */
 window.NOTICES = {
-  fr: "",
-  en: "",
-  es: "",
-  de: "",
-  nl: "",
-  it: "",
-  pt: ""
+  fr: "/toile-jute/pdf/guide-toile-jute-fr.pdf",
+  en: "/toile-jute/pdf/guide-toile-jute-en.pdf",
+  es: "/toile-jute/pdf/guide-toile-jute-es.pdf",
+  de: "/toile-jute/pdf/guide-toile-jute-de.pdf",
+  nl: "/toile-jute/pdf/guide-toile-jute-nl.pdf",
+  it: "/toile-jute/pdf/guide-toile-jute-it.pdf",
+  pt: "/toile-jute/pdf/guide-toile-jute-pt.pdf"
 };
