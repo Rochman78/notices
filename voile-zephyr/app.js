@@ -1,13 +1,13 @@
 "use strict";
 /* Ne pas modifier ce fichier pour changer un lien : voir config.js */
 var LANGS = {
- fr:{name:"Français",   t:"Guide d'installation",     s:"Voile d'ombrage HDPE", b:"Ouvrir le guide (PDF)",       o:"Autres langues"},
- en:{name:"English",    t:"Installation guide",       s:"HDPE shade sail",         b:"Open the guide (PDF)",        o:"Other languages"},
- es:{name:"Español",    t:"Guía de instalación",      s:"Vela de sombra HDPE",  b:"Abrir la guía (PDF)",         o:"Otros idiomas"},
- de:{name:"Deutsch",    t:"Installationsanleitung",   s:"HDPE-Sonnensegel",       b:"Anleitung öffnen (PDF)",      o:"Weitere Sprachen"},
- nl:{name:"Nederlands", t:"Installatiehandleiding",   s:"HDPE-schaduwdoek",       b:"Handleiding openen (PDF)",    o:"Andere talen"},
- it:{name:"Italiano",   t:"Guida all'installazione",  s:"Vela ombreggiante in HDPE", b:"Apri la guida (PDF)",       o:"Altre lingue"},
- pt:{name:"Português",  t:"Guia de instalação",       s:"Vela de sombra em HDPE",  b:"Abrir o guia (PDF)",          o:"Outros idiomas"}
+ fr:{name:"Français",   t:"Guide d'installation",     s:"Voile d'ombrage Zephyr", b:"Ouvrir le guide (PDF)",       o:"Autres langues"},
+ en:{name:"English",    t:"Installation guide",       s:"Zephyr shade sail",         b:"Open the guide (PDF)",        o:"Other languages"},
+ es:{name:"Español",    t:"Guía de instalación",      s:"Vela de sombra Zephyr",  b:"Abrir la guía (PDF)",         o:"Otros idiomas"},
+ de:{name:"Deutsch",    t:"Installationsanleitung",   s:"Zephyr Sonnensegel",       b:"Anleitung öffnen (PDF)",      o:"Weitere Sprachen"},
+ nl:{name:"Nederlands", t:"Installatiehandleiding",   s:"Zephyr schaduwdoek",       b:"Handleiding openen (PDF)",    o:"Andere talen"},
+ it:{name:"Italiano",   t:"Guida all'installazione",  s:"Vela ombreggiante Zephyr", b:"Apri la guida (PDF)",       o:"Altre lingue"},
+ pt:{name:"Português",  t:"Guia de instalação",       s:"Vela de sombra Zephyr",  b:"Abrir o guia (PDF)",          o:"Outros idiomas"}
 };
 /* Liste blanche : seuls ces hôtes peuvent être ouverts depuis la page. */
 var ALLOWED_HOSTS = ["drive.google.com","docs.google.com","drive.usercontent.google.com"];
